@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #4682b4;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .sidebar {
+      width: 250px;
+      background-color:#4682b4;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      padding-top: 60px;
+      transition: all 0.3s ease;
+    }
+    .sidebar a {
+      padding: 15px;
+      text-decoration: none;
+      font-size: 18px;
+      color: white;
+      display: block;
+    }
+    .sidebar a:hover {
+      background-color: #575757;
+    }
+    .main-content {
+      margin-left: 250px;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+    .card {
+      background-color: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #4682b4;
+      color: white;
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+      .sidebar a {float: left;}
+      .main-content {
+        margin-left: 0;
+      }
+      header {
+        text-align: left;
+        padding-left: 20px;
+      }
+    }
+    @media (max-width: 600px) {
+      .sidebar a {
+        text-align: center;
+        float: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Admin Dashboard</h1>
+</header>
+
+<div class="sidebar">
+  <a href="#dashboard">Dashboard</a>
+  <a href="#manage-orders">Manage Orders</a>
+  <a href="#track-deliveries">Track Deliveries</a>
+  <a href="#update-services">Update Services</a>
+</div>
+
+<div class="main-content">
+  <section id="dashboard" class="card">
+    <h2>Dashboard</h2>
+    <p>Welcome to the Admin Dashboard, your hub for overseeing orders, tracking shipments, and updating service details.</p>
+  </section>
+
+  <section id="manage-orders" class="card">
+    <h2>Manage Orders</h2>
+    <table>
+      <tr>
+        <th>Order ID</th>
+        <th>Customer Name</th>
+        <th>Address</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td><input type="text" name="order-id" placeholder="Enter Order ID"></td>
+        <td><input type="text" name="customer-name" placeholder="Enter Customer Name"></td>
+        <td><input type="text" name="address" placeholder="Enter Address"></td>
+        <td>
+          <select name="status">
+            <option value="pending">Pending</option>
+            <option value="shipped">Shipped</option>
+            <option value="delivered">Delivered</option>
+          </select>
+        </td>
+        <td><button class="btn-primary" onclick="updateOrder(this)">Update</button></td>
+      </tr>
+    </table>
+  </section>
+
+  <section id="track-deliveries" class="card">
+    <h2>Track Deliveries</h2>
+    <table>
+      <tr>
+        <th>Delivery ID</th>
+        <th>Order ID</th>
+        <th>Status</th>
+        <th>Estimated Delivery</th>
+      </tr>
+      <tr>
+        <td><input type="text" name="delivery-id" placeholder="Enter Delivery ID"></td>
+        <td><input type="text" name="order-id" placeholder="Enter Order ID"></td>
+        <td>
+          <select name="status">
+            <option value="in-transit">In Transit</option>
+            <option value="delivered">Delivered</option>
+          </select>
+        </td>
+        <td><input type="date" name="estimated-delivery"></td>
+      </tr>
+    </table>
+  </section>
+
+  <section id="update-services" class="card">
+    <h2>Update Services</h2>
+    <form>
+      <label for="service-name">Service Name:</label>
+      <input type="text" id="service-name" name="service-name" required>
+      
+      <label for="service-description">Service Description:</label>
+      <textarea id="service-description" name="service-description" required></textarea>
+      
+      <button type="submit" class="btn-primary">Update Service</button>
+    </form>
+  </section>
+</div>
+
+<script>
+  function updateOrder(button) {
+    const row = button.parentElement.parentElement;
+    const orderId = row.querySelector('input[name="order-id"]').value;
+    const customerName = row.querySelector('input[name="customer-name"]').value;
+    const address = row.querySelector('input[name="address"]').value;
+    const status = row.querySelector('select[name="status"]').value;
+
+    alert(`Order Updated!\n\nOrder ID: ${orderId}\nCustomer Name: ${customerName}\nAddress: ${address}\nStatus: ${status}`);
+  }
+
+  function updateDelivery(button) {
+    const row = button.parentElement.parentElement;
+    const deliveryId = row.querySelector('input[name="delivery-id"]').value;
+    const orderId = row.querySelector('input[name="order-id"]').value;
+    const status = row.querySelector('select[name="status"]').value;
+    const estimatedDelivery = row.querySelector('input[name="estimated-delivery"]').value;
+
+    alert(`Delivery Updated!\n\nDelivery ID: ${deliveryId}\nOrder ID: ${orderId}\nStatus: ${status}\nEstimated Delivery: ${estimatedDelivery}`);
+  }
+</script>
+
+</body>
+</html>

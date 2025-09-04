@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers at Courier Express</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            background: #7cccec;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        #job-listings, #application-form {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .job {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            transition: background 0.3s;
+        }
+
+        .job:hover {
+            background: #f1f1f1;
+        }
+
+        .job h3 {
+            margin: 0;
+        }
+
+        .job p {
+            margin: 5px 0;
+        }
+
+        .job button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .job button:hover {
+            background: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #7cccec;
+            color: white;
+            margin-top: 20px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        form input[type="text"]:focus,
+        form input[type="email"]:focus,
+        form input[type="file"]:focus {
+            border-color: #007bff;
+        }
+
+        form button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        form button:hover {
+            background: #218838;
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Careers at Courier Express</h1>
+    </header>
+    <section id="job-listings" class="fade-in">
+        <h2>Current Openings</h2>
+        <div class="job" data-job-id="1">
+            <h3>Delivery Driver</h3>
+            <p>Location: Kochi, Kerala</p>
+            <p>Full-Time</p>
+            <button onclick="applyNow('Delivery Driver')">Apply Now</button>
+        </div>
+        <div class="job" data-job-id="2">
+            <h3>Customer Service Representative</h3>
+            <p>Location: Thiruvananthapuram, Kerala</p>
+            <p>Full-Time</p>
+            <button onclick="applyNow('Customer Service Representative')">Apply Now</button>
+        </div>
+        <!-- Add more job listings as needed -->
+    </section>
+    <section id="application-form" style="display:none;" class="fade-in">
+        <h2>Apply for Job</h2>
+        <form id="job-application-form">
+            <label for="job-title">Job Title:</label>
+            <input type="text" id="job-title" name="jobTitle" readonly><br><br>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="resume">Resume:</label>
+            <input type="file" id="resume" name="resume" required><br><br>
+            <button type="submit">Submit Application</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2024 Courier Express. All rights reserved.</p>
+    </footer>
+    <script>
+        function applyNow(jobTitle) {
+            const jobListings = document.getElementById('job-listings');
+            const applicationForm = document.getElementById('application-form');
+
+            jobListings.style.display = 'none';
+            applicationForm.style.display = 'block';
+            document.getElementById('job-title').value = jobTitle;
+
+            // Apply fade-in animation
+            applicationForm.classList.remove('fade-in');
+            void applicationForm.offsetWidth; // Trigger reflow
+            applicationForm.classList.add('fade-in');
+        }
+
+        document.getElementById('job-application-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const jobTitle = document.getElementById('job-title').value;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const resume = document.getElementById('resume').files[0];
+
+            alert(`Application Submitted:\n\nJob Title: ${jobTitle}\nName: ${name}\nEmail: ${email}\nResume: ${resume.name}`);
+
+            // Reset form and navigate back to job listings
+            document.getElementById('job-application-form').reset();
+            document.getElementById('application-form').style.display = 'none';
+            document.getElementById('job-listings').style.display = 'block';
+
+            // Apply fade-in animation
+            const jobListings = document.getElementById('job-listings');
+            jobListings.classList.remove('fade-in');
+            void jobListings.offsetWidth; // Trigger reflow
+            jobListings.classList.add('fade-in');
+        });
+    </script>
+</body>
+</html>

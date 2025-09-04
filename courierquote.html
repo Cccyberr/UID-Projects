@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Details</title>
+    <style>
+        body {
+            background: 
+                linear-gradient(to right, rgba(6, 158, 241, 0.5), rgba(167, 222, 233, 0.5)), 
+                linear-gradient(to bottom, #a0cfe1, #0e1c7a);
+            color: #020202;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #ddd;
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: lightblue;
+        }
+        th {
+            text-align: left;
+            font-weight: bold;
+            background-color: lightblue;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        h4 {
+            text-align: center;
+            color: #fff;
+        }
+        @media (max-width: 600px) {
+            form {
+                width: 90%;
+                padding: 10px;
+            }
+            th, td {
+                padding: 5px;
+            }
+            .btn-primary {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Courier Service Quote</h1>
+    <form>
+        <table>
+            <tr>
+                <th>Origin:</th>
+                <td><input type="text" name="origin" required placeholder="Enter origin address"></td>
+            </tr>
+            <tr>
+                <th>Destination:</th>
+                <td><input type="text" name="destination" required placeholder="Enter destination address"></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th colspan="2">Shipment Details</th>
+            </tr>
+            <tr>
+                <td>Package Dimensions:</td>
+                <td><input type="text" name="dimensions" required placeholder="e.g., 15 x 10 x 8 inches"></td>
+            </tr>
+            <tr>
+                <td>Package Weight:</td>
+                <td><input type="text" name="weight" required placeholder="e.g., 5 lbs"></td>
+            </tr>
+            <tr>
+                <td>No. of Packages:</td>
+                <td><input type="number" name="numPackages" required placeholder="e.g., 1"></td>
+            </tr>
+            <tr>
+                <td>Content Description:</td>
+                <td><input type="text" name="content" required placeholder="Describe the contents"></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th colspan="2">Service Options</th>
+            </tr>
+            <tr>
+                <td>Service Level:</td>
+                <td><input type="text" name="serviceLevel" required placeholder="e.g., Express"></td>
+            </tr>
+            <tr>
+                <td>Delivery Timeframe:</td>
+                <td><input type="text" name="timeframe" required placeholder="e.g., 1-2 business days"></td>
+            </tr>
+            <tr>
+                <td>Insurance:</td>
+                <td><input type="text" name="insurance" required placeholder="e.g., Yes, insured for $1,000"></td>
+            </tr>
+            <tr>
+                <td>Signature Confirmation:</td>
+                <td><input type="text" name="signature" required placeholder="e.g., Yes"></td>
+            </tr>
+            <tr>
+                <td>Tracking:</td>
+                <td><input type="text" name="tracking" required placeholder="e.g., Included"></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th colspan="2">Cost Breakdown</th>
+            </tr>
+            <tr>
+                <td>Base Transportation Cost:</td>
+                <td><input type="text" name="baseCost" required placeholder="e.g., $25"></td>
+            </tr>
+            <tr>
+                <td>Fuel Surcharge (estimated):</td>
+                <td><input type="text" name="fuelSurcharge" required placeholder="e.g., $5"></td>
+            </tr>
+            <tr>
+                <td>Insurance Cost (if selected):</td>
+                <td><input type="text" name="insuranceCost" required placeholder="e.g., $10"></td>
+            </tr>
+            <tr>
+                <td>Signature Confirmation Cost (if selected):</td>
+                <td><input type="text" name="signatureCost" required placeholder="e.g., $5"></td>
+            </tr>
+            <tr>
+                <td>Estimated Total Cost:</td>
+                <td><input type="text" name="totalCost" required placeholder="e.g., $42"></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th colspan="2">Additional Information</th>
+            </tr>
+            <tr>
+                <td>Estimated Pickup Date:</td>
+                <td><input type="date" name="pickupDate" required></td>
+            </tr>
+            <tr>
+                <td>Terms and Conditions:</td>
+                <td><a href="termsandcondition.html">Terms and Conditions</a></td>
+            </tr>
+        </table>
+
+        <button type="submit" class="btn-primary">Submit Quote</button>
+    </form>
+
+    <h4>THANK YOU FOR USING COURIER EXPRESS...</h4>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector("form");
+    
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+    
+                const formData = new FormData(form);
+                let message = "Quote Details:\n\n";
+    
+                for (const [key, value] of formData.entries()) {
+                    message += `${key}: ${value}\n`;
+                }
+    
+                alert(message);
+            });
+        });
+    </script>
+    
+</body>
+</html>

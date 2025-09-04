@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courier Express</title>
+  <style>
+    body {
+      background-image: url('https://img.freepik.com/premium-photo/3d-rendering-delivery-service-by-motorcycle-3d-illustration-logistic-service-food-delivery_542094-7.jpg');
+      background-size: cover;
+      background-position: center;
+      color: black;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      padding: 20px;
+      background-color: #4682b4;
+      border-bottom-left-radius: 30px; 
+      border-bottom-right-radius: 30px;
+      border: 2px solid #4682b4;
+      text-align: center;
+      position: relative;
+    }
+    footer {
+      padding: 20px;
+      text-align: center;
+      background-color: #4682b4;
+      border: 2px solid #4682b4;
+      border-top-left-radius: 30px; 
+      border-top-right-radius: 30px;
+    }
+    .maine {
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 0.25rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      margin-bottom: 1rem;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+    .card:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .card-body {
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+    }
+    .card-text:hover, .card-title:hover {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .horizontal-list {
+      list-style: none; 
+      padding: 0; 
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .horizontal-list li {
+      display: inline;
+    }
+    .horizontal-list a {
+      text-decoration: none;
+      color: white;
+    }
+    .horizontal-list a:hover {
+      background-color: rgb(13, 24, 243);
+    }
+    .additional-info {
+      display: none;
+      margin-top: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .container {
+      text-align: center;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    h1, h2 {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    h5 {
+      font-family: 'Times New Roman', Times, serif;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    form input, form textarea, form button {
+      width: 40%;
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+      border: 1px solid #ddd;
+    }
+    .login-career-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div id="container">
+      <h1 class="mb-0">COURIER SERVICE</h1>
+      <nav>
+        <ul class="horizontal-list">
+          <li><a href="#">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="login-career-links">
+          <a href="login.html" class="btn-primary">Admin Login</a>
+          <a href="career.html" class="btn-primary">Careers</a>
+          <a href = "blog.html" class ="btn-primary">Blog/News </a>
+          <a href = "reviewpage.html" class="btn-primary">Review</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="maine">
+    <div class="container">
+      <h1>Fast, Reliable Delivery</h1>
+      <p>Get your packages delivered securely and on time.</p>
+      <a href="courierquote.html" class="btn-primary">Get a Quote</a>
+    </div>
+  </section>
+
+  <main class="container">
+    <section id="services" class="row mb-5">
+      <h2>Our Services</h2>
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <i class="fas fa-rocket fa-2x mr-3 text-primary"></i>
+            <div>
+              <h5 class="card-title" id="delivery-title">Express Delivery</h5>
+              <div class="additional-info" id="delivery-info">
+                <p>Express delivery ensures your package is delivered quickly and within a shorter timeframe compared to standard shipping methods.</p>
+                <p>With express delivery, you can expect expedited handling and faster transit times, making it ideal for urgent shipments.</p>
+                <p>Whether it's a time-sensitive document or a last-minute gift, express delivery provides a reliable and efficient shipping solution.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <i class="fas fa-map-marker-alt fa-2x mr-3 text-primary"></i>
+            <div>
+              <h5 class="card-title" id="package-title">Package Tracking</h5>
+              <div class="additional-info" id="package-info">
+                <p>Track your package in real-time and stay updated on its delivery status.</p>
+                <p>Package tracking allows you to monitor the progress of your shipment in real-time, providing valuable insights into its current location and estimated delivery time.</p>
+                <p>By utilizing tracking numbers or unique identifiers assigned to each package, you can access detailed information about its journey from origin to destination.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form id="contactForm" class="row">
+        <div class="col-md-6 mb-3">
+          <input type="text" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <input type="email" class="form-control" placeholder="Your Email" required>
+        </div>
+        <div class="col-md-12 mb-3">
+          <textarea class="form-control" placeholder="Your Message" required></textarea>
+        </div>
+        <div class="col-md-12">
+          <button type="submit" class="btn-primary">Send Message</button>
+        </div>
+      </form>
+    </section>
+    <p>&copy; 2024 Courier Express</p>
+  </footer>
+
+  <script>
+    const packageTitle = document.getElementById('package-title');
+    const packageInfo = document.getElementById('package-info');
+    const deliveryTitle = document.getElementById('delivery-title');
+    const deliveryInfo = document.getElementById('delivery-info');
+
+    packageTitle.addEventListener('mouseover', () => { 
+      packageInfo.style.display = 'block';
+    });
+    packageTitle.addEventListener('mouseout', () => {
+      packageInfo.style.display = 'none';
+    });
+
+    deliveryTitle.addEventListener('mouseover', () => {
+      deliveryInfo.style.display = 'block';
+    });
+    deliveryTitle.addEventListener('mouseout', () => {
+      deliveryInfo.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>

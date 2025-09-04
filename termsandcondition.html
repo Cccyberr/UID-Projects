@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TERMS AND CONDITIONS</title>
+    <style>
+        body {
+            background: white;
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            color: black;
+        }
+        .first {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: large;
+            margin-bottom: 20px;
+        }
+        .second {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .more {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-top: 10px;
+        }
+        h3 {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            cursor: pointer;
+        }
+        ol {
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .more p {
+            margin-bottom: 10px;
+        }
+        header {
+            padding: 20px;
+            background: linear-gradient(to right, rgba(83, 170, 216, 0.5), white), 
+                linear-gradient(to bottom, rgba(83, 170, 216, 0.5), rgba(144, 172, 187, 0.5));
+            border-bottom-left-radius: 30px; 
+            border-bottom-right-radius: 30px;
+            text-align: center;
+        }
+        .expand-icon {
+            float: right;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>
+            Terms And Conditions
+        </h2>
+    </header>
+    <div class="first">
+        The conditions outlined herein apply to the carriage by Courier Express of consignments booked under this consignment note, within specific locations in India, utilizing single or multimodal transport options. These conditions supersede any other terms or agreements, oral or written, and the Customer confirms their understanding and agreement to solely rely upon these terms. The rights and liabilities of Courier Express and the Parties are governed by the terms set forth herein, constituting a binding contract between Courier Express and the Parties.
+    </div>
+
+    <div id="definitions" class="second">
+        <h3>Definitions</h3>
+        <ol>
+            <li>"Delivery" refers to the tendering of a consignment to a recipient or intimation of its arrival to a recipient at the destination.</li>
+            <li>"Courier Express" denotes Courier Express Limited or its channel partners or authorized representatives.</li>
+            <li>"Parties" encompass the Sender & Recipient or their authorized representatives.</li>
+            <li>"Sender" is the entity tendering a consignment to Courier Express, and "Recipient" is the entity entitled to receive the consignment.</li>
+            <li>"Shipment" or "Consignment" denotes a document or non-document booked under a consignment note by the Parties, irrespective of quantity, value, or commodity.</li>
+            <li>"Freight" refers solely to transportation charges, excluding taxes and any specific charges for value-added services.</li>
+            <li>"Declared value for carriage" signifies the value assigned by the sender for the purposes of unrecoverable damage or loss of the consignment while in Courier Express's custody. This applies when the sender insures the goods externally and selects "Owner Risk" or when the consignment is covered under "Carrier Risk".</li>
+            <li>The Parties acknowledge that this Consignment Note's contents are binding and prepared either by the Sender or a Courier Express staff acting as agent under the Parties' instruction. The consignment note relies on the declaration provided by the Parties at the time of booking, and any false or wrongful declaration renders the Parties solely liable for the consequences.</li>
+        </ol>
+    </div>
+
+    <h3 onclick="toggleSection('more-info')">More Information <span class="expand-icon">+</span></h3>
+    <div id="more-info" class="more">
+        <p>The Sender must provide complete addresses and valid contact details for both Sender and Recipient, including correct Postal Index Numbers (PIN codes). Service failures due to defects in these details are the sole responsibility of the Parties.</p>
+        <p>Services undertaken by Courier Express are conditional upon payment of freight and all other charges by the Parties. The Parties are also responsible for payments required by statutory bodies or government agencies during transit or at delivery.</p>
+        <p>Any discrepancy in weight post-acceptance of a consignment, where actual weight or volumetric weight exceeds the declared weight, results in applicable differential charges collected from the Parties.</p>
+        <p>Courier Express assumes no responsibility for delays caused by statutory authorities, and the Parties agree to indemnify Courier Express for losses incurred due to insufficiency of documents or wrongful declaration.</p>
+        <p>Packing and labeling obligations fall on the Sender to ensure adequate carriage suitability.</p>
+        <p>Certain items are not acceptable for carriage, as specified by current regulations.</p>
+        <p>Perishable articles with a shelf life of less than 7 days are not suitable for transportation, and Courier Express bears no liability for losses due to delivery delays.</p>
+        <p>Courier Express reserves the right to inspect consignments at any time, and consignments cannot be delivered to PO Box addresses.</p>
+        <p>Limited liability for delays is outlined, and in the event of damage, loss, or mis-delivery, Courier Express's liability is limited unless the sender declares a higher value and pays applicable surcharges.</p>
+        <p>Risk surcharge is applicable based on declared value for carriage and risk coverage options selected by the sender.</p>
+        <p>Courier Express is not liable for claims made beyond 30 days from consignment tendering.</p>
+        <p>Freight refund is not applicable under Force Majeure conditions.</p>
+        <p>Parties failing to take delivery of consignments remain liable for charges, and Courier Express may charge demurrage for undelivered consignments.</p>
+        <p>All disputes are subject to arbitration in Bangalore, with courts there having exclusive jurisdiction.</p>
+        <p>The consignment note is not a tax invoice, and a tax invoice will be provided upon request.</p>
+    </div>
+
+    <script>
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const icon = section.previousElementSibling.querySelector('.expand-icon');
+
+            if (section.style.display == 'block') {
+                section.style.display = 'none';
+                icon.textContent = '+';
+            } else {
+                section.style.display = 'block';
+                icon.textContent = '-';
+            }
+        }
+
+        window.onload = function() {
+            const headers = document.querySelectorAll('h3');
+            headers.forEach(header => {
+                header.addEventListener('click', function() {
+                    const ol = this.nextElementSibling.querySelector('ol');
+                    if (ol) {
+                        ol.style.display = ol.style.display === 'none' ? 'block' : 'none';
+                    }
+                    this.classList.toggle('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
